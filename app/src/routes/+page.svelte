@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>Debate Hub</title>
+  <title>Debate Hub | ติดตามการประชันวิสัยทัศน์ก่อนเลือกตั้งปี 2566</title>
 </svelte:head>
 
 <main>
@@ -25,8 +25,36 @@
       <button on:click={searchHandle}>ค้นหา</button>
     </div>
   </section>
+  <section id="filter-section">
+    <div id="filter-box">
+      <div id="filter-by-channel">
+        <h3>เลือกตามช่อง</h3>
+        <div id="category">
+          <ul>
+            <li>The Standard</li>
+            <li>ช่อง 7</li>
+            <li>ช่อง 3</li>
+          </ul>
+        </div>
+      </div>
+      <div id="filter-by-topic">
+        <h3>เลือกตามหัวข้อ</h3>
+      </div>
+      <div id="filter-by-geography">
+        <h3>เลือกตามภูมิภาค</h3>
+      </div>
+    </div>
+  </section>
   <section id="display-section">
-    <DebateCard /> 
+    <div id="container">
+      <DebateCard />
+      <DebateCard />
+      <DebateCard />
+      <DebateCard />
+      <DebateCard />
+      <DebateCard />
+      <DebateCard />
+    </div>
   </section>
 </main>
 
@@ -60,4 +88,16 @@
     outline: none;
     cursor: pointer;
   }
+
+  #display-section > #container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* #display-section > #container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  } */
 </style>

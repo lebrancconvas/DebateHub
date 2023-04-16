@@ -24,8 +24,8 @@
 
 <style>
   #debate-card {
-    width: 300px;
-    height: 500px;
+    width: 400px;
+    height: 300px;
     outline: 3px solid black;
     padding: 10px;
     margin: 10px;
