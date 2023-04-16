@@ -8,16 +8,16 @@
 <main>
   <div id="debate-card">
     <div id="thumbnail">
-      <img src="" alt="thumbnail">
+      <img src={thumbnail} alt={name}>
     </div>
     <div id="title">
-      <h2>หัวข้อคลิปดีเบต</h2>
+      <h2>{name}</h2>
     </div>
     <div id="author">
-      <h3>ผู้อัพโหลดคลิป</h3>
+      <h3>{author}</h3>
     </div>
     <div id="upload-date">
-      <h5>วันที่อัพโหลด</h5>
+      <h5>{uploadDate}</h5>
     </div>
   </div>
 </main>
