@@ -1,4 +1,5 @@
 <script lang="ts">
+  import DebateCard from '../components/DebateCard.svelte';
   let hello = '';
   function searchHandle() {
     console.log(`Hello ${hello}`);
@@ -20,12 +21,12 @@
   </header>
   <section id="search-section">
     <div id="search-box">
-      <input type="text" placeholder="ค้นหาคำที่ต้องการ" bind:value={hello} /> 
+      <input type="text" placeholder="ค้นหาหัวข้อการดีเบตที่ต้องการ" bind:value={hello} />
       <button on:click={searchHandle}>ค้นหา</button>
     </div>
   </section>
   <section id="display-section">
-
+    <DebateCard /> 
   </section>
 </main>
 
