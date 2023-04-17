@@ -1,4 +1,3 @@
-// AIzaSyDcmI1OvYoYvrBeUunN9gcosWvSmCt-BPo
 import dotenv from "dotenv";
 import axios from 'axios';
 import * as Debates from './data/debate.json';
