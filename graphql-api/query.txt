@@ -1,0 +1,15 @@
+Query {
+  items {
+    snippet {
+      publishedAt
+      title
+      descritpion
+      thumbnail {
+        default
+        medium
+      }
+      channelTitle
+      tags
+    }
+  }
+}
