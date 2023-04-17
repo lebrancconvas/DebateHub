@@ -1,9 +1,20 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import axios from 'axios';
 	import DebateCard from '../components/DebateCard.svelte';
 	let hello = '';
 	function searchHandle() {
 		console.log(`Hello ${hello}`);
 	}
+
+	const fetchItems = async() => {
+		const response = await fetch('http://localhost:7901/api');
+		const data = await response.json();
+		const items = data.items;
+		return items;
+	};
+
+
 </script>
 
 <svelte:head>
@@ -25,7 +36,7 @@
 	<section id="search-section">
 		<div id="search-box">
 			<input type="text" placeholder="ค้นหาวิดิโอดีเบตที่ต้องการ" bind:value={hello} />
-			<button on:click={searchHandle}>ค้นหา</button>
+			<!-- <button on:click={searchHandle}>ค้นหา</button> -->
 		</div>
 	</section>
 	<section id="filter-section">
@@ -64,15 +75,19 @@
 			</div>
 		</div>
 	</section>
+  <hr>
 	<section id="display-section">
+    <div id="topic">
+      <h2>รวมลิสต์วิดิโอดีเบตทัั้งหมด</h2>
+    </div>
 		<div id="container">
-			<DebateCard />
-			<DebateCard />
-			<DebateCard />
-			<DebateCard />
-			<DebateCard />
-			<DebateCard />
-			<DebateCard />
+			{#await fetchItems()}
+				<h3>loading...</h3>
+			{:then items}
+				{#each items as item}
+					<DebateCard name={item.snippet.title} author={item.snippet.channelTitle} uploadDate={item.snippet.publishedAt.split('T')[0]} link={`https://youtube.com/watch?v=${item.id}`} />
+				{/each}
+			{/await}
 		</div>
 	</section>
 </main>
@@ -117,6 +132,15 @@
 		flex-wrap: wrap;
 		justify-content: center;
 	}
+
+  /* Change from Vertical to Horizontal */
+  #category {
+
+  }
+
+  #topic {
+    text-align: center;
+  }
 
 	/* #display-section > #container {
     display: grid;
